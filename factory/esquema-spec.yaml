@@ -1,0 +1,25 @@
+# Contrato de entrada de la fabrica.
+# Todo spec que entre al pipeline se valida contra este esquema.
+# Si un spec no cumple, el pipeline se detiene en la etapa interpretar.
+
+id: string                    # spec-1, spec-2, ...
+titulo: string
+
+tipo: enum                    # agrega | integra | reemplaza
+                              # Determina que verificaciones extra corre el pipeline.
+
+intencion: string             # El problema en lenguaje de producto. Que, no como.
+
+criterios:                    # Minimo 1. Cada uno genera al menos una prueba.
+  - id: string                # CA-1, CA-2, ...
+    texto: string
+    verificable_por: enum     # funcional | visual | ambas
+
+escenarios:                   # Opcional. Situaciones a cubrir.
+  - string
+
+fuera_de_alcance:             # Opcional. Lo que el spec declara que NO toca.
+  - string
+
+restricciones:                # Opcional. Limites de implementacion.
+  - string
