@@ -1,0 +1,45 @@
+id: spec-1
+titulo: Reconocimiento obligatorio antes de iniciar un quiz
+
+tipo: agrega
+
+intencion: >
+  Antes de ver la primera pregunta, el estudiante debe aceptar un
+  reconocimiento. El texto y la obligatoriedad se configuran por quiz.
+
+criterios:
+  - id: CA-1
+    texto: >
+      Con el reconocimiento activado, el estudiante no llega a la primera
+      pregunta hasta aceptarlo.
+    verificable_por: ambas
+
+  - id: CA-2
+    texto: >
+      Con el reconocimiento desactivado, el flujo del intento es identico
+      al actual.
+    verificable_por: ambas
+
+  - id: CA-3
+    texto: El texto del reconocimiento es configurable por quiz.
+    verificable_por: funcional
+
+  - id: CA-4
+    texto: >
+      Las pruebas automaticas derivadas de los criterios pasan, y existe
+      evidencia del camino completo del intento.
+    verificable_por: funcional
+
+escenarios:
+  - Reconocimiento activado, el estudiante acepta y continua.
+  - Reconocimiento activado, el estudiante no acepta y no puede avanzar.
+  - Reconocimiento desactivado, el intento arranca como siempre.
+
+fuera_de_alcance:
+  - Calificacion
+  - Reportes
+  - Actividades que no sean quiz
+
+restricciones:
+  - El cambio es aditivo, no modifica comportamiento existente.
+  - No se modifica el core de Moodle.
